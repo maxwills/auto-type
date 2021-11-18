@@ -1,5 +1,5 @@
 # AutoType
-Automatic anonymous classes generation.
+Automatic anonymous classes generation, meant to be used as data structures.
 
 ## Baseline
 
@@ -25,6 +25,8 @@ item := t newWith
 	endWith
 ```
 Will create a new class with setters and getters for `#firstName`, `#lastName`, `#fullName`, and will return an instance of the class, ie., `item` responds to the the following messages: `item firstName`, `item firstName:`, `item lastName`, etc.
+
+Additionaly, the generated class replies to the `at:` message, like dictionaries. Eg., you can use `item at: #lastName`.
 
 ## How it works
 
