@@ -7,7 +7,7 @@ Do this:
 ```Smalltalk
 Metacello new
     baseline: 'AutoType';
-    repository: 'github://maxwills/AutoType:main';
+    repository: 'github://maxwills/auto-type:main';
     load.
 ```
 
