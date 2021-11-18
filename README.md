@@ -64,5 +64,5 @@ This will execute the definition logic only during the first iteration, and then
 See `AutoTypeTest >> testNominal`.
 
 
-To create more instances of the class, use the `newWith`/`endWith` construct. Or you can also do:
+To create more instances of the class, use the `newWith`/`endWith` cascade construct. Or you can also do:
 `t class new`.
