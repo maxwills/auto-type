@@ -19,10 +19,10 @@ AutoType is a system that can be used to automatically generate a class from set
 t := AutoType new.
 
 item := t newWith
-			 firstName: (each at: 1);
-			 lastName: (each at: 2);
-			 fullName: (each at: 1) , ' ' , (each at: 2);
-			 endWith
+	firstName: (each at: 1);
+	lastName: (each at: 2);
+	fullName: (each at: 1) , ' ' , (each at: 2);
+	endWith
 ```
 			
 "Will create a new class with setters and getters for #firstName, #lastName, #fullName, and will return an instance of the class"
@@ -40,11 +40,10 @@ myCollection collect: [:each|
 	|t|
 	t := AutoType new "bad usage!".
 	t newWith
-			 firstName: (each at: 1);
-			 lastName: (each at: 2);
-			 fullName: (each at: 1) , ' ' , (each at: 2);
-			 endWith
-	]
+		firstName: (each at: 1);
+		lastName: (each at: 2);
+		fullName: (each at: 1) , ' ' , (each at: 2);
+		endWith ]
 ```
 
 Doing that will execute the definition logic on every iteration of the collect: method. Instead, use it like this:
@@ -55,11 +54,10 @@ t := AutoType new "placed instead in a scope out of the iteration".
 	
 myCollection collect: [:each| 
 	t newWith
-			 firstName: (each at: 1);
-			 lastName: (each at: 2);
-			 fullName: (each at: 1) , ' ' , (each at: 2);
-			 endWith
-	]
+		firstName: (each at: 1);
+		lastName: (each at: 2);
+		fullName: (each at: 1) , ' ' , (each at: 2);
+		endWith ]
 ```
 This will execute the definition logic only during the first iteration, and then the new class is reused.
 
