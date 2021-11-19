@@ -49,7 +49,9 @@ AutoTypeBuilder >> buildClass [
 		newClass compile: 'keysDo: aBlock
 	fields do: [ :each | aBlock value: each ]'.
 		newClass compile: 'at: anObject
-	^self readSlotNamed: anObject'.
+	^self perform: anObject'.
+newClass compile: 'at: anObject put: anotherObject
+	^self perform: anObject,'':'' withArguments: {anotherObject}'.
 		newClass compile: 'endWith
 	^self'.
 		newClass class compile: 'fields
