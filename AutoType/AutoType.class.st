@@ -1,5 +1,5 @@
 "
-A system that can be used to automatically generate a class from setter expressions. This new class is not installed in the system.
+A system that can be used to automatically generate a class from setter expressions. This new class is not installed in the system. It also answers at: and at:put:, like a Dictionary.
 
 t := AutoType new.
 

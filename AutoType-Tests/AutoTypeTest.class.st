@@ -35,6 +35,28 @@ AutoTypeTest >> testAt [
 ]
 
 { #category : #test }
+AutoTypeTest >> testAtPut [
+
+	| baseCollection newCollection t |
+	t := AutoType new.
+	baseCollection := { 
+		                  { 'john'. 'doe' }.
+		                  { 'jane'. 'doe' } }.
+
+	newCollection := baseCollection collect: [ :each | 
+		                 t newWith
+			                 firstName: (each at: 1);
+			                 lastName: (each at: 2);
+			                 fullName: (each at: 1) , ' ' , (each at: 2);
+			                 endWith ].
+
+	newCollection first at: #firstName put: 'notJohn'.
+	newCollection second at: #fullName put: 'notAFullName'.
+	self assert: newCollection first firstName equals: 'notJohn'.
+	self assert: newCollection second fullName equals: 'notAFullName'
+]
+
+{ #category : #test }
 AutoTypeTest >> testNoCollectionUsage [
 
 	| baseCollection newCollection t |
