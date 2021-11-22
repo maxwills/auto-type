@@ -37,25 +37,16 @@ AutoTypeBuilder >> buildClass [
 
 	EpMonitor disableDuring: [ 
 		| newClass |
-		newClass := (Object << #AnonymousTypeX)
+		newClass := (AutoTypeBase << #AutoTypeX)
 			            slots: fields;
 			            tag: '';
-			            sharedVariables: { #fields };
+			            sharedVariables: {  };
 			            package: '';
 			            build.
 		fields do: [ :each | 
 			self createAccessorsForField: each inClass: newClass ].
-		newClass writeClassVariableNamed: #fields value: fields.
-		newClass compile: 'keysDo: aBlock
-	fields do: [ :each | aBlock value: each ]'.
-		newClass compile: 'at: anObject
-	^self perform: anObject'.
-		newClass compile: 'at: anObject put: anotherObject
-	^self perform: anObject,'':'' withArguments: {anotherObject}'.
-		newClass compile: 'endWith
-	^self'.
-		newClass class compile: 'fields
-	^ fields'.
+		newClass superclass writeClassVariableNamed: #fields value: fields.
+
 		^ newClass ]
 ]
 
