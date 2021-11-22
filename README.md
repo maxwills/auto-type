@@ -13,7 +13,7 @@ Metacello new
 
 ## General usage information
 
-AutoType is a system that can be used to automatically generate a class from setter expressions. The new class is not installed in the system.
+AutoType is a system that can be used to automatically generate a class from setter expressions. The new class is not installed in the system, and is not registered in the logs.
 
 ```Smalltalk
 t := AutoType new.
