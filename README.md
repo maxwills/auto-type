@@ -29,7 +29,7 @@ Will create a new class with setters and getters for `#firstName`, `#lastName`, 
 Additionaly, the generated class replies to the `at:` and at:put: message, like dictionaries. Eg., you can use `item at: #lastName`.
 
 ## Why though?
-Dictionaries seem to be slightly slow for some usages (Completely subjective and not tested). It is faster to access instance variables throught getters than finding keys in a dictionary, in the current implementation. Also, the notation for instantiation is a lot cleaner with AutoType.
+Dictionaries seem to be slightly slow for some usages *(Completely subjective and not tested)*. It is faster to access instance variables throught getters than finding keys in a dictionary, in the current implementation. Also, the notation for instantiation is a lot cleaner with AutoType.
 
 ## How it works
 
