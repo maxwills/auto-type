@@ -50,7 +50,7 @@ AutoTypeBuilder >> buildClass [
 	fields do: [ :each | aBlock value: each ]'.
 		newClass compile: 'at: anObject
 	^self perform: anObject'.
-newClass compile: 'at: anObject put: anotherObject
+		newClass compile: 'at: anObject put: anotherObject
 	^self perform: anObject,'':'' withArguments: {anotherObject}'.
 		newClass compile: 'endWith
 	^self'.
