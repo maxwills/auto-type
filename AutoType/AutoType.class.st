@@ -54,7 +54,7 @@ Class {
 	#instVars : [
 		'type'
 	],
-	#category : #AutoType
+	#category : #'AutoType-Core'
 }
 
 { #category : #accessing }

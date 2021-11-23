@@ -7,7 +7,7 @@ Class {
 	#classVars : [
 		'fields'
 	],
-	#category : #AutoType
+	#category : #'AutoType-Core'
 }
 
 { #category : #testing }

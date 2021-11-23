@@ -7,7 +7,7 @@ Class {
 		'assignments',
 		'autoType'
 	],
-	#category : #AutoType
+	#category : #'AutoType-Core'
 }
 
 { #category : #'instance creation' }
