@@ -13,20 +13,26 @@ Metacello new
 
 ## General usage information
 
-AutoType is a system that can be used to automatically generate a class from setter expressions. The new class is not installed in the system.
+AutoType is a system that can be used to automatically generate a class from setter expressions. The new class is not installed in the system, and is not registered in the logs.
 
 ```Smalltalk
+|t name lastname|
+name := 'ACleverFistName'.
+lastname := 'ADissapointingLastName'.
 t := AutoType new.
 
 item := t newWith
-	firstName: (each at: 1);
-	lastName: (each at: 2);
-	fullName: (each at: 1) , ' ' , (each at: 2);
+	firstName: name;
+	lastName: lastname;
+	fullName: name , ' ' , lastname;
 	endWith
 ```
 Will create a new class with setters and getters for `#firstName`, `#lastName`, `#fullName`, and will return an instance of the class, ie., `item` responds to the the following messages: `item firstName`, `item firstName:`, `item lastName`, etc.
 
-Additionaly, the generated class replies to the `at:` message, like dictionaries. Eg., you can use `item at: #lastName`.
+Additionaly, the generated class replies to the `at:`, `at:put:` and `keysDo:` messages, like dictionaries. Eg., you can use `item at: #lastName put: 'newLastName'`.
+
+## Why though?
+Dictionaries seem to be slightly slow for some usages *(Completely subjective and not tested)*. It is faster to access instance variables throught getters than finding keys in a dictionary, in the current implementation. Also, the notation for instantiation is a lot cleaner with AutoType.
 
 ## How it works
 
