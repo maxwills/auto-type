@@ -76,6 +76,8 @@ AutoTypeBuilder >> doPendingAssignmentsOn: anObject [
 { #category : #'reflective operations' }
 AutoTypeBuilder >> doesNotUnderstand: aMessage [
 
+	"Analyze the message. If it is a setter, remember the message and create the getter and setter. If it is a getter, just create the setter and getter"
+
 	| selector |
 	selector := aMessage selector.
 	aMessage arguments size = 0
