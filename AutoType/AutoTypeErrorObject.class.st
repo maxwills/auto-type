@@ -10,6 +10,9 @@ Class {
 { #category : #'instance creation' }
 AutoTypeErrorObject class >> newWithMessage: string [
 
+	Transcript
+		show: string;
+		cr.
 	^ AutoTypeErrorObject new
 		  errorMessage: string;
 		  yourself
