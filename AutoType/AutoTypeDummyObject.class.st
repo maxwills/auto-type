@@ -2,19 +2,19 @@
 Dummy class used to generate autoTypes, forcing their materialization.
 "
 Class {
-	#name : #AutoDummyObject,
+	#name : #AutoTypeDummyObject,
 	#superclass : #Object,
-	#category : #'AutoType-Dummy'
+	#category : #'AutoType-Dummies'
 }
 
 { #category : #'reflective operations' }
-AutoDummyObject >> asString [
+AutoTypeDummyObject >> asString [
 
-	^ 'DummyState'
+	^ 'DummyObject'
 ]
 
 { #category : #'reflective operations' }
-AutoDummyObject >> doesNotUnderstand: aMessage [
+AutoTypeDummyObject >> doesNotUnderstand: aMessage [
 
 	^ self
 ]
