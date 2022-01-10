@@ -4,7 +4,7 @@ An AutoTypeTest is a test class for testing the behavior of AutoType
 Class {
 	#name : #AutoTypeTest,
 	#superclass : #TestCase,
-	#category : #'AutoType-Tests'
+	#category : #'AutoType-Tests-Core'
 }
 
 { #category : #test }

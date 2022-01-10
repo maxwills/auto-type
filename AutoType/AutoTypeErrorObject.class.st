@@ -1,11 +1,40 @@
 Class {
 	#name : #AutoTypeErrorObject,
 	#superclass : #AutoTypeDummyObject,
+	#instVars : [
+		'errorMessage'
+	],
 	#category : #'AutoType-Dummies'
 }
+
+{ #category : #'instance creation' }
+AutoTypeErrorObject class >> newWithMessage: string [
+
+	^ AutoTypeErrorObject new
+		  errorMessage: string;
+		  yourself
+]
 
 { #category : #'reflective operations' }
 AutoTypeErrorObject >> asString [
 
-	^ 'AutoTypeErrorObject'
+	^ errorMessage 
+]
+
+{ #category : #accessing }
+AutoTypeErrorObject >> errorMessage [
+
+	^ errorMessage
+]
+
+{ #category : #accessing }
+AutoTypeErrorObject >> errorMessage: anObject [
+
+	errorMessage := anObject
+]
+
+{ #category : #initialization }
+AutoTypeErrorObject >> initialize [
+
+	errorMessage := 'AutoTypeErrorObject'
 ]
