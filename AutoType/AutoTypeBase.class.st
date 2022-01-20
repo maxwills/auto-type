@@ -32,7 +32,7 @@ AutoTypeBase >> at: arg1 [
 { #category : #accessing }
 AutoTypeBase >> at: arg1 put: arg2 [
 
-	^ self perform: arg1 with: arg2
+	^ self perform: arg1 , ':' with: arg2
 ]
 
 { #category : #'as yet unclassified' }
