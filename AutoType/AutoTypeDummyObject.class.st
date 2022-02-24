@@ -18,3 +18,51 @@ AutoTypeDummyObject >> doesNotUnderstand: aMessage [
 
 	^ self
 ]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> iFalse: aBlock [
+
+	^ self
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> ifFalse: aBlock2 ifTrue: aBlock [ 
+
+	^ self
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> ifTrue: aBlock [
+
+	^ self
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> ifTrue: aBlock ifFalse: aBlock2 [
+
+	^ self
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> isEmpty [
+
+	^ true
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> isNotEmpty [
+
+	^ true
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> whileFalse: aBlock [
+
+	^ self
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> whileTrue: aBlock [
+
+	^ self
+]
