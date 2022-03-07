@@ -77,4 +77,4 @@ See `AutoTypeTest >> testNominal`.
 
 
 To create more instances of the class, use the `newWith`/`endWith` cascade construct. Or you can also do:
-`t class new`.
+`t type new`, or if you already have an instance of your auto gereated class, you can do `your_instance class new`.
