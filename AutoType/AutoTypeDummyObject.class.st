@@ -7,6 +7,11 @@ Class {
 	#category : #'AutoType-Dummies'
 }
 
+{ #category : #controlling }
+AutoTypeDummyObject >> and: anObject [
+^self
+]
+
 { #category : #'reflective operations' }
 AutoTypeDummyObject >> asString [
 
@@ -53,6 +58,12 @@ AutoTypeDummyObject >> isEmpty [
 AutoTypeDummyObject >> isNotEmpty [
 
 	^ true
+]
+
+{ #category : #controlling }
+AutoTypeDummyObject >> or: anObject [
+
+	^ self
 ]
 
 { #category : #controlling }
