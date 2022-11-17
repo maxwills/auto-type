@@ -59,7 +59,7 @@ AutoTypeTest >> testAtPut [
 { #category : #test }
 AutoTypeTest >> testMultipleAutoTypes [
 
-	| t1 t2 t3 t4 ob1 |
+	| t1 t2 t3 ob1 |
 	t1 := AutoType new.
 	t2 := AutoType new.
 	t3 := AutoType new.
