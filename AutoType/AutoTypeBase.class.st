@@ -5,8 +5,9 @@ A side effect of not producing logs this ways is that the source code is lost.
 Class {
 	#name : #AutoTypeBase,
 	#superclass : #Object,
-	#classVars : [
-		'fields'
+	#classInstVars : [
+		'fields',
+		'sortedFields'
 	],
 	#category : #'AutoType-Core'
 }
@@ -21,6 +22,24 @@ AutoTypeBase class >> acceptsLoggingOfCompilation [
 AutoTypeBase class >> fields [
 
 	^ fields
+]
+
+{ #category : #'field definition' }
+AutoTypeBase class >> sortedFields [
+
+	^ sortedFields
+]
+
+{ #category : #comparing }
+AutoTypeBase >> = arg1 [
+
+	self == arg1 ifTrue: [ ^ true ].
+	(arg1 isKindOf: AutoTypeBase) ifFalse: [ ^ false ].
+	(self class sortedFields hasEqualElements: arg1 class sortedFields) 
+		ifFalse: [ ^ false ].
+	self keysDo: [ :arg2 | 
+		(self at: arg2) = (arg1 at: arg2) ifFalse: [ ^ false ] ].
+	^ true
 ]
 
 { #category : #accessing }
@@ -44,7 +63,7 @@ AutoTypeBase >> endWith [
 { #category : #enumerating }
 AutoTypeBase >> keysDo: arg1 [
 
-	fields do: [ :arg2 | arg1 value: arg2 ]
+	self class fields do: [ :arg2 | arg1 value: arg2 ]
 ]
 
 { #category : #printing }

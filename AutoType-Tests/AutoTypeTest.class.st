@@ -57,6 +57,66 @@ AutoTypeTest >> testAtPut [
 ]
 
 { #category : #test }
+AutoTypeTest >> testMultipleAutoTypes [
+
+	| t1 t2 t3 t4 ob1 |
+	t1 := AutoType new.
+	t2 := AutoType new.
+	t3 := AutoType new.
+
+	ob1 := t1 newWith
+		       field1: 1;
+		       field2: 2;
+		       endWith.
+	self assert: ob1 equals: ob1.
+
+	self assert: ob1 equals: (t1 newWith
+			 field2: 2;
+			 field1: 1;
+			 endWith).
+
+	self
+		deny: (t1 newWith
+				 field1: 2;
+				 field2: 2;
+				 endWith)
+		equals: (t1 newWith
+				 field1: 1;
+				 field2: 2;
+				 endWith).
+	self
+		assert: (t1 newWith
+				 field1: 1;
+				 field2: 2;
+				 endWith)
+		equals: (t2 newWith
+				 field1: 1;
+				 field2: 2;
+				 endWith).
+
+	self
+		deny: (t3 newWith
+				 field1: 1;
+				 field2: 2;
+				 field3: 1;
+				 endWith)
+		equals: (t2 newWith
+				 field1: 1;
+				 field2: 2;
+				 endWith).
+	self
+		deny: (t1 newWith
+				 field1: 1;
+				 field2: 2;
+				 endWith)
+		equals: (t3 newWith
+				 field1: 1;
+				 field2: 2;
+				 field3: 1;
+				 endWith)
+]
+
+{ #category : #test }
 AutoTypeTest >> testNoCollectionUsage [
 
 	| baseCollection newCollection t |

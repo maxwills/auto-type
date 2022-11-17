@@ -7,8 +7,17 @@ Class {
 		'assignments',
 		'autoType'
 	],
+	#classVars : [
+		'counter'
+	],
 	#category : #'AutoType-Core'
 }
+
+{ #category : #initialization }
+AutoTypeBuilder class >> initialize [
+
+	counter := 0
+]
 
 { #category : #'instance creation' }
 AutoTypeBuilder class >> newFor: autoType [
@@ -37,16 +46,20 @@ AutoTypeBuilder >> buildClass [
 
 	EpMonitor disableDuring: [ 
 		| newClass |
-		newClass := (AutoTypeBase << #AutoTypeX)
+		counter := counter + 1.
+		newClass := (AutoTypeBase
+		             << (#AutoTypeX , counter asString asSymbol))
 			            slots: fields;
 			            tag: '';
-			            sharedVariables: {  };
 			            package: '';
 			            build.
+
 		fields do: [ :each | 
 			self createAccessorsForField: each inClass: newClass ].
-		newClass superclass writeClassVariableNamed: #fields value: fields.
-
+		newClass writeSlotNamed: #fields value: fields.
+		newClass
+			writeSlotNamed: #sortedFields
+			value: (fields sorted: [ :a :b | a <= b ]).
 		^ newClass ]
 ]
 
