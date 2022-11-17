@@ -60,9 +60,10 @@ Class {
 { #category : #accessing }
 AutoType >> newWith [
 
-	"The first time this is executed, it will create a class builder that will being listening for setter to define the type, until endWith is called, which will return an instance of the new defined class.
+	"The first time this is executed, it will create a class builder that will beging listening for setters to define the type, until endWith is called, which will return an instance of the new defined class.
 The second time and forth, it will immediately return a new instance of the already defined class (whose endWith method is equivalent to #yourself)
 See AutoTypeBuild for more info.
+Note: Why using #endWith instead of overriding #yourself? Ans: The #yourself method is generally expected to behave in a very specifc manner, and some code analyzing tools might rely on the standard objects API. Overriding these kind of methods is ill adviced.
 "
 
 	^ type ifNotNil: [ type new ] ifNil: [ AutoTypeBuilder newFor: self ]
