@@ -24,6 +24,15 @@ AutoTypeDummyObject >> doesNotUnderstand: aMessage [
 	^ self
 ]
 
+{ #category : #'as yet unclassified' }
+AutoTypeDummyObject >> forceTrueOrFalse [
+	"Used to ensure boolean values in AutoType expressions. This must be used if you use #ifTrue: and similar messages in a Autotype setter expression. 
+	This returns randomly true or false, to prevent infinite loops if used in whileTrue or whilefalse expressions.
+"
+
+	^ (SharedRandom globalGenerator nextInteger: 2) = 1
+]
+
 { #category : #controlling }
 AutoTypeDummyObject >> iFalse: aBlock [
 
